@@ -37,6 +37,7 @@ const Login = () => {
                         username: <input name ="user" onChange={handleUsernameInput} />
                         password: <input name="password" onChange={handlePasswordInput} />
                         <button>Log In</button>
+                        <button>Hey yall</button>
                     </form>
                     <button onClick= {handleSignUp}>Sign Up</button>
                 </>
