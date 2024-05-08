@@ -3,19 +3,19 @@ import { SignUp } from "../SignUp/SignUp";
 
 const Login = () => {
 
-    const [username, setUsername] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [isSignUp, setIsSignUp] = useState<boolean>(false);
 
     const handleLogIn = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(username);
+        console.log(email);
         console.log(password);
     }
 
-    const handleUsernameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleEmailAdressInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
-        setUsername(event.target.value);
+        setEmail(event.target.value);
     }
 
     const handlePasswordInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +34,7 @@ const Login = () => {
             (
                 <>
                     <form onSubmit={handleLogIn} >
-                        username: <input name ="user" onChange={handleUsernameInput} />
+                        email address: <input name ="email" onChange={handleEmailAdressInput} />
                         password: <input name="password" onChange={handlePasswordInput} />
                         <button>Log In</button>
                         <button>Hey yall</button>
