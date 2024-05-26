@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { SignUp } from "../SignUp/SignUp";
+import { SignUp } from "../signup/SignUp";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [isSignUp, setIsSignUp] = useState<boolean>(false);
 
     const handleLogIn = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -23,25 +23,20 @@ const Login = () => {
         setPassword(event.target.value);
     }
 
-    const handleSignUp = () => {
-        setIsSignUp(true);
+    const heyYall = () => {
+        console.log(`heyyall: ${localStorage.getItem('token')}`);
     }
 
     return (
         <>
-            {isSignUp ? <SignUp /> 
-            : 
-            (
-                <>
-                    <form onSubmit={handleLogIn} >
-                        email address: <input name ="email" onChange={handleEmailAdressInput} />
-                        password: <input name="password" onChange={handlePasswordInput} />
-                        <button>Log In</button>
-                        <button>Hey yall</button>
-                    </form>
-                    <button onClick= {handleSignUp}>Sign Up</button>
-                </>
-            )}
+            <h1>Log In Page</h1>
+            <form onSubmit={handleLogIn} >
+                email address: <input name ="email" onChange={handleEmailAdressInput} />
+                password: <input name="password" onChange={handlePasswordInput} />
+                <button>Log In</button>
+                <button onClick={heyYall} >Hey yall</button>
+            </form>
+            <Link to="/signup"><button>Go To SIgnUP</button></Link>
         </>
     );
 }
